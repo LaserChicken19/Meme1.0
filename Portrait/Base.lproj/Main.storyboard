@@ -141,10 +141,12 @@
                     </view>
                     <connections>
                         <outlet property="bottomTextField" destination="vdc-Ix-Tkb" id="1fx-an-wfn"/>
+                        <outlet property="bottomToolBar" destination="VZb-5O-Ues" id="87c-Zy-vUf"/>
                         <outlet property="cameraButton" destination="a3n-So-fzw" id="MMw-5k-B77"/>
                         <outlet property="mainImage" destination="XmJ-rm-FSw" id="WCP-7K-RiC"/>
                         <outlet property="shareButton" destination="E7z-Qj-66t" id="Nwf-OK-Yhr"/>
                         <outlet property="topTextField" destination="8Na-9z-LW8" id="FUT-Dt-y0g"/>
+                        <outlet property="topToolBar" destination="0fu-3f-9Bc" id="r1z-eK-ee1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

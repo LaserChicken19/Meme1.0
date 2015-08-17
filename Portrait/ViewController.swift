@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
+    @IBOutlet weak var topToolBar: UIToolbar!
+    @IBOutlet weak var bottomToolBar: UIToolbar!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var mainImage: UIImageView!
     @IBOutlet weak var bottomTextField: UITextField!
@@ -28,33 +30,34 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.topTextField.defaultTextAttributes=self.myMemeAttributes
-        self.topTextField.borderStyle=UITextBorderStyle.None
-        self.topTextField.delegate=myTFDelegate
-        self.topTextField.textAlignment=NSTextAlignment.Center
-        self.topTextField.text="TOP"
-        self.bottomTextField.defaultTextAttributes=self.myMemeAttributes
-        self.bottomTextField.borderStyle=UITextBorderStyle.None
-        self.bottomTextField.delegate=myTFDelegate
-        self.bottomTextField.textAlignment=NSTextAlignment.Center
-        self.bottomTextField.text="BOTTOM"
+        topTextField.defaultTextAttributes=self.myMemeAttributes
+        topTextField.borderStyle=UITextBorderStyle.None
+        topTextField.delegate=myTFDelegate
+        topTextField.textAlignment=NSTextAlignment.Center
+        topTextField.text="TOP"
+        bottomTextField.defaultTextAttributes=self.myMemeAttributes
+        bottomTextField.borderStyle=UITextBorderStyle.None
+        bottomTextField.delegate=myTFDelegate
+        bottomTextField.textAlignment=NSTextAlignment.Center
+        bottomTextField.text="BOTTOM"
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        if self.mainImage.image==nil {
-            self.shareButton.enabled=false
-        } else { self.shareButton.enabled=true }
-        self.cameraButton.enabled=UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        if  mainImage.image==nil {
+            shareButton.enabled=false
+        } else { shareButton.enabled=true }
+        
+        cameraButton.enabled=UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         self.subscribeToKeyboardNotifications()
     }
     
     @IBAction func Cancel(sender: UIBarButtonItem) {
-        self.mainImage.image=nil
-        self.shareButton.enabled=false
-        self.mainImage.backgroundColor=UIColor.blackColor()
-        self.topTextField.text="TOP"
-        self.bottomTextField.text="BOTTOM"
+        mainImage.image=nil
+        shareButton.enabled=false
+        mainImage.backgroundColor=UIColor.blackColor()
+        topTextField.text="TOP"
+        bottomTextField.text="BOTTOM"
     }
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
@@ -69,7 +72,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         if let image=info[UIImagePickerControllerOriginalImage] as? UIImage {
-                self.mainImage.image=image
+                mainImage.image=image
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
@@ -81,15 +84,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.presentViewController(controller, animated: true, completion: nil)
     }
     func generateMemedImage() -> UIImage {
+        
+        topToolBar.hidden=true
+        bottomToolBar.hidden=true
         UIGraphicsBeginImageContext(self.view.frame.size)
         self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
         let memedImage:UIImage=UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        topToolBar.hidden=false
+        bottomToolBar.hidden=false
         return memedImage
     }
     
     func save() {
-        var meme=Meme(topText: self.topTextField.text, bottomText: self.bottomTextField.text, image: self.mainImage.image!, memedImage: self.generatedImg)
+        var meme=Meme(topText: topTextField.text, bottomText: bottomTextField.text, image: mainImage.image!, memedImage: self.generatedImg)
     }
     
 
