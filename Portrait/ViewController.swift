@@ -51,13 +51,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         cameraButton.enabled=UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         self.subscribeToKeyboardNotifications()
     }
-    
     @IBAction func Cancel(sender: UIBarButtonItem) {
-        mainImage.image=nil
-        shareButton.enabled=false
-        mainImage.backgroundColor=UIColor.blackColor()
-        topTextField.text="TOP"
-        bottomTextField.text="BOTTOM"
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
@@ -98,9 +93,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func save() {
         var meme=Meme(topText: topTextField.text, bottomText: bottomTextField.text, image: mainImage.image!, memedImage: self.generatedImg)
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
+        
     }
     
-
     @IBAction func Share(sender: AnyObject) {
         self.generatedImg=generateMemedImage()
         let controller = UIActivityViewController(activityItems: [self.generatedImg], applicationActivities: nil)
