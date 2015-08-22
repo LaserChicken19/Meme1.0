@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Portrait/ViewController.swift"
+            filePath = "Portrait/MemeEditorController.swift"
             timestampString = "461481731.013522"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
             endingLineNumber = "19"
-            landmarkName = "ViewController"
+            landmarkName = "MemeEditorController"
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,7 +41,7 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Portrait/ViewController.swift"
+            filePath = "Portrait/MemeEditorController.swift"
             timestampString = "461907095.718552"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -57,13 +57,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Portrait/ViewController.swift"
+            filePath = "Portrait/MemeEditorController.swift"
             timestampString = "461907095.718552"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "93"
             endingLineNumber = "93"
-            landmarkName = "ViewController"
+            landmarkName = "MemeEditorController"
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,7 +73,7 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Portrait/ViewController.swift"
+            filePath = "Portrait/MemeEditorController.swift"
             timestampString = "461907095.718552"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -89,7 +89,7 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Portrait/ViewController.swift"
+            filePath = "Portrait/MemeEditorController.swift"
             timestampString = "461907095.718552"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"

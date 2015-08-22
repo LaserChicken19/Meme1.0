@@ -29,12 +29,12 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource {
         super.viewWillAppear(animated)
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
-        self.memes=appDelegate.memes
+        memes=appDelegate.memes
         myCollection.reloadData()
     }
 
     @IBAction func addPhoto(sender: UIBarButtonItem) {
-        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorController") as! MemeEditorController
         self.presentViewController(controller, animated: true, completion: nil)
     }
     
